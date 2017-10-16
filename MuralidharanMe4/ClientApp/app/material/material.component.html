@@ -1,0 +1,56 @@
+﻿<h1>{{title}}</h1>
+
+
+<form class="form-horizontal" [formGroup]="userDetailForm" (ngSubmit)="save()"  novalidate>
+
+    <div class="form-group">
+        <div class="col-sm-12">
+            <md-input-container>
+                <input mdInput placeholder="Name" formControlName="Name">
+            </md-input-container>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-12">
+            <md-input-container>
+                <input mdInput [mdDatepicker]="picker" placeholder="Date of Birth" formControlName="DoB">
+                <button mdSuffix [mdDatepickerToggle]="picker"></button>
+            </md-input-container>
+            <md-datepicker #picker></md-datepicker>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-12">
+            <md-select placeholder="Gender" formControlName="Gender">
+                <md-option *ngFor="let item of genderItems" [value]="item.value">
+                    {{ item.viewValue }}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-12">
+            <md-slider min="18" max="99" step="1" formControlName="Age"></md-slider>
+        </div>
+    </div>
+
+
+    <button md-raised-button class="pull-right" type="submit"  [disabled]="userDetailForm.pristine">Submit</button>
+
+</form>
+
+
+<section>
+
+    <ul>
+        <li *ngFor="let user of userList">
+            {{ user.Name }}
+        </li>
+    </ul>
+
+</section>

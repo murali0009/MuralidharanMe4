@@ -1,0 +1,31 @@
+
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <a class="navbar-brand" href="#">
+        <strong>Muralidharan Nandakumar</strong></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item"><a routerLinkActive="active" [routerLink]="['/']">Home</a></li>
+        <!-- <li class="nav-item"><a routerLinkActive="active" [routerLink]="['/about']">About</a></li> -->
+        <!-- <li class="nav-item"><a routerLinkActive="active" [routerLink]="['/github', 'angular']">Github</a></li> -->
+        <li class="nav-item"><a routerLinkActive="active" [routerLink]="['/contact']">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<main>
+	<router-outlet></router-outlet>
+</main>
+<footer>
+  © 2016.v1.0.1
+</footer>
+

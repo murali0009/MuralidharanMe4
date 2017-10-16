@@ -1,0 +1,59 @@
+﻿<h1>{{title}}</h1>
+
+
+<form #userform="ngForm" class="form-horizontal" (ngSubmit)="save(userform.value)">
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" [for]="name">Name:</label>
+        <div class="col-sm-10">
+            <input type="text" name="Name" validateRequired [(ngModel)]="userIndo.Name" #Name="ngModel" class="k-textbox">
+            <common-validation-message [control]="Name"></common-validation-message>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" [for]="dob">Date of Birth:</label>
+        <div class="col-sm-10">
+            <kendo-dateinput #DoB="ngModel" validateRequired name="DoB" [(ngModel)]="userIndo.DoB"></kendo-dateinput>
+            <common-validation-message [control]="DoB"></common-validation-message>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" [for]="gender">Gender:</label>
+        <div class="col-sm-10">
+            <kendo-dropdownlist name="Gender"  #Gender="ngModel" [(ngModel)]="userIndo.Gender"  [data]="genderItems"> </kendo-dropdownlist>
+            <common-validation-message [control]="Gender"></common-validation-message>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" [for]="age">Age:</label>
+        <div class="col-sm-10">
+            <kendo-slider #Age="ngModel"
+                          name="Age"
+                          [(ngModel)]="userIndo.Age"
+                          [min]="min"
+                          [max]="max"
+                          [smallStep]="smallStep"></kendo-slider>
+            <span>(Age = {{Age.value}}) Better use numeric box :)</span>
+        </div>
+    </div>
+  
+
+    <button kendoButton  [disabled]="!userform.valid" [primary]="true" class="pull-right" type="submit">Submit</button>
+
+</form>
+
+
+<section>
+
+    <ul>
+        <li *ngFor="let user of userList">
+            {{ user.Name }}
+        </li>
+    </ul>
+
+</section>
