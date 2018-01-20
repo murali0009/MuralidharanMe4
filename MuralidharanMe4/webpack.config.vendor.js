@@ -28,13 +28,6 @@ module.exports = (env) => {
                 '@angular/platform-browser-dynamic',
                 '@angular/router',
                 '@angular/material',
-                '@progress/kendo-angular-l10n',
-                '@progress/kendo-angular-buttons',
-                '@progress/kendo-angular-label',
-                '@progress/kendo-angular-dropdowns',
-                '@progress/kendo-angular-inputs',
-                '@progress/kendo-angular-intl',
-                '@progress/kendo-angular-dateinputs',
                 'bootstrap',
                 'bootstrap/dist/css/bootstrap.css',
                 'es6-shim',
@@ -68,10 +61,8 @@ module.exports = (env) => {
             new webpack.DllPlugin({
                 path: path.join(__dirname, 'wwwroot', 'dist', '[name]-manifest.json'),
                 name: '[name]_[hash]'
-            }),
-            new CopyWebpackPlugin([
-                { from: './node_modules/@progress/kendo-theme-default/dist/all.css', to: path.join(__dirname, 'wwwroot','css') },
-            ])
+            })
+
         ].concat(isDevBuild ? [] : [
             new webpack.optimize.UglifyJsPlugin()
         ])
